@@ -1,8 +1,11 @@
 import express from "express";
 import pacientesRoutes from "./routes/pacientes.routes.js";
 import usuariosRoutes from "./routes/usuarios.routes.js";
+import cors from "cors";
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
