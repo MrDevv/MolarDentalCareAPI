@@ -1,6 +1,7 @@
 import express from "express";
 import pacientesRoutes from "./routes/pacientes.routes.js";
 import usuariosRoutes from "./routes/usuarios.routes.js";
+import { PORT } from "./config.js";
 import cors from "cors";
 
 const app = express();
@@ -18,6 +19,6 @@ app.use((req, res) => {
     })
 })
 
-app.listen(3000)
+app.listen(PORT)
 
-console.log(`Servidor corriendo en el puerto 3000`);
+console.log(`Servidor corriendo en el puerto ${PORT}`);
