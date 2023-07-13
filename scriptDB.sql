@@ -41,9 +41,9 @@ CREATE TABLE odontologo(
 CREATE TABLE horarioAtencion(
 	idHorarioAtencion INT NOT NULL AUTO_INCREMENT,
     estado VARCHAR(20) NOT NULL,
-    fechaRegistro DATE NOT NULL,
-    horaInicio VARCHAR(10) NOT NULL,
-    horaFin VARCHAR(10) NOT NULL,
+    fecharegistro DATE NOT NULL,
+    horainicio VARCHAR(10) NOT NULL,
+    horafin VARCHAR(10) NOT NULL,
     idOdontologo INT NOT NULL,
     PRIMARY KEY(idHorarioAtencion),
     FOREIGN KEY(idOdontologo) REFERENCES odontologo(idOdontologo)

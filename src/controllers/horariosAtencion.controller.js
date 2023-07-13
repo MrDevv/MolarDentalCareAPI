@@ -34,7 +34,7 @@ export const updateHorarioAtencion = async(req, res = response) => {
     try {
         const {id} = req.params;
         const {estado, fechaRegistro, horaInicio, horaFin, idOdontologo} = req.body;
-        const [result] = await pool.query('UPDATE horarioAtencion SET estado = ?, fechaRegistro = ?, horaInicio = ?, horaFin = ?, idOdontologo = ? WHERE idHorarioAtencion= ?', [estado, fechaRegistro, horaInicio, horaFin, idOdontologo, id]);
+        const [result] = await pool.query('UPDATE horarioAtencion SET estado = ?, fecharegistro = ?, horainicio = ?, horafin = ?, idOdontologo = ? WHERE idHorarioAtencion= ?', [estado, fechaRegistro, horaInicio, horaFin, idOdontologo, id]);
 
         if (result.affectedRows === 0) return res.status(404).json(
             {message: 'El horario de atención a actualizar no existe'}
