@@ -39,7 +39,7 @@ CREATE TABLE odontologo(
 );
 
 CREATE TABLE horarioAtencion(
-	IdHorarioAtencion INT NOT NULL AUTO_INCREMENT,
+	idHorarioAtencion INT NOT NULL AUTO_INCREMENT,
     estado VARCHAR(20) NOT NULL,
     fechaRegistro DATE NOT NULL,
     horaInicio VARCHAR(10) NOT NULL,
@@ -79,6 +79,6 @@ select * from horarioAtencion as ho inner join odontologo as o on o.idOdontologo
 select * from cita as c inner join horarioAtencion as h on c.idHorarioAtencion = h.idHorarioAtencion inner join paciente as p on c.idPaciente = p.idPaciente
 
 update usuario set rol = 'paciente' where usuario = 'mvegape';
-select * from usuario
+select * from paciente
 
 
