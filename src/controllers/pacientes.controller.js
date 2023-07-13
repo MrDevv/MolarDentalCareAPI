@@ -25,7 +25,8 @@ export const createPaciente = async(req, res = response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server Error'
+            message: 'Server Error',
+            information: error
         })    
     }
 }
