@@ -3,42 +3,43 @@ CREATE DATABASE molardentalcare;
 use molardentalcare;
 
 CREATE TABLE usuario(
-	usuario VARCHAR(12) NOT NULL,
-    password VARCHAR(12) NOT NULL,
-    rol VARCHAR(12),
-	PRIMARY KEY(usuario)
+    idUsuario INT NOT NULL AUTO_INCREMENT,
+	Usuario VARCHAR(12) NOT NULL,
+    Contrasena VARCHAR(12) NOT NULL,
+    Rol VARCHAR(12),
+	PRIMARY KEY(idUsuario)
 );
 
 CREATE TABLE paciente(
 	idPaciente INT NOT NULL AUTO_INCREMENT,
-    apellidos VARCHAR(30) NOT NULL,
-    nombres VARCHAR(30) NOT NULL,
-    fechaNacimiento DATE NOT NULL,
-    dni VARCHAR(8) NOT NULL,
-    telefono VARCHAR(9),
-    direccion VARCHAR(20),
-    correo VARCHAR(30),
-    idusuario VARCHAR(12),
+    Apellidos VARCHAR(30) NOT NULL,
+    Nombres VARCHAR(30) NOT NULL,
+    FechaNacimiento DATE NOT NULL,
+    Dni VARCHAR(8) NOT NULL,
+    Telefono VARCHAR(9) NOT NULL,
+    Direccion VARCHAR(20) NOT NULL,
+    Correo VARCHAR(30) NOT NULL,
+    IdUsuario INT NOT NULL,
     PRIMARY KEY(idPaciente),
-    FOREIGN KEY (idusuario) REFERENCES usuario(usuario)
+    FOREIGN KEY (idusuario) REFERENCES usuario(idUsuario)
 );
 
 CREATE TABLE odontologo(
 	idOdontologo INT NOT NULL AUTO_INCREMENT,
-    apellidos VARCHAR(30) NOT NULL,
-    nombres VARCHAR(30) NOT NULL,
-    fechaNacimiento DATE NOT NULL,
-    dni VARCHAR(8) NOT NULL,
-    telefono VARCHAR(9) NOT NULL,
-    direccion VARCHAR(20) NOT NULL,
-    correo VARCHAR(30) NOT NULL,
-    idusuario VARCHAR(12) NOT NULL,
+    Apellidos VARCHAR(30) NOT NULL,
+    Nombres VARCHAR(30) NOT NULL,
+    FechaNacimiento DATE NOT NULL,
+    Dni VARCHAR(8) NOT NULL,
+    Telefono VARCHAR(9) NOT NULL,
+    Direccion VARCHAR(20) NOT NULL,
+    Correo VARCHAR(30) NOT NULL,
+    idUsuario VARCHAR(12) NOT NULL,
     PRIMARY KEY(idOdontologo),
-    FOREIGN KEY (idusuario) REFERENCES usuario(usuario)
+    FOREIGN KEY (idusuario) REFERENCES usuario(idUsuario)
 );
 
 CREATE TABLE horarioAtencion(
-	idHorarioAtencion INT NOT NULL AUTO_INCREMENT,
+	IdHorarioAtencion INT NOT NULL AUTO_INCREMENT,
     estado VARCHAR(20) NOT NULL,
     fechaRegistro DATE NOT NULL,
     horaInicio VARCHAR(10) NOT NULL,
@@ -50,7 +51,7 @@ CREATE TABLE horarioAtencion(
 
 CREATE TABLE cita(
 	idCita INT NOT NULL AUTO_INCREMENT,
-    montoTotal DECIMAL(9,2) NOT NULL,
+    montototal DECIMAL(9,2) NOT NULL,
     idHorarioAtencion INT NOT NULL,
     idPaciente INT NOT NULL,
     PRIMARY KEY(idCita),
