@@ -1,4 +1,4 @@
-import { json, response } from "express";
+import { response } from "express";
 import { pool } from "../db.js";
 
 export const getUsuarios = async (req, res = response) => {

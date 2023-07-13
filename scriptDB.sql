@@ -33,9 +33,9 @@ CREATE TABLE odontologo(
     Telefono VARCHAR(9) NOT NULL,
     Direccion VARCHAR(20) NOT NULL,
     Correo VARCHAR(30) NOT NULL,
-    idUsuario VARCHAR(12) NOT NULL,
+    idUsuario INT NOT NULL,
     PRIMARY KEY(idOdontologo),
-    FOREIGN KEY (idusuario) REFERENCES usuario(idUsuario)
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
 );
 
 CREATE TABLE horarioAtencion(
