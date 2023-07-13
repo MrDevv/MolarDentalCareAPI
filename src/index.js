@@ -3,6 +3,7 @@ import pacientesRoutes from "./routes/pacientes.routes.js";
 import usuariosRoutes from "./routes/usuarios.routes.js";
 import odontologosRoutes from './routes/odontologos.routes.js'
 import horariosRoutes from "./routes/horariosAtencion.routes.js";
+import citasRoutes from "./routes/citas.routes.js";
 
 import { PORT } from "./config.js";
 import cors from "cors";
@@ -17,6 +18,7 @@ app.use('/api', pacientesRoutes);
 app.use('/api', usuariosRoutes);
 app.use('/api', odontologosRoutes);
 app.use('/api', horariosRoutes);
+app.use('/api', citasRoutes);
 
 app.use((req, res) => {
     res.status(404).json({

@@ -69,8 +69,8 @@ VALUES('Vega', 'Miguel', '2001-03-24', '74283707', '984323059', 'jr. montufar','
 INSERT INTO odontologo(apellidos, nombres, fechaNacimiento, dni, telefono, direccion, correo, idusuario) 
 VALUES('Sanchez', 'Andre', '1993-02-10', '76340312', '948392945', 'av. rosales','andre@gmail.com', 2);
 -- HORARIOS DE ATENCIÓN
-INSERT INTO horarioAtencion(estado, fechaRegistro, horaInicio, horaFin, idOdontologo) 
-VALUES('disponible', '2023-07-12', '10:00', '11:00', 1);
+INSERT INTO horarioAtencion(estado, fecharegistro, horainicio, horafin, idOdontologo) 
+VALUES('disponible', '2023-07-12', '10:00', '11:00', 2);
 -- CITA
 INSERT INTO cita(montoTotal, idHorarioAtencion, idPaciente) VALUES(20.9, 1, 1)
 
