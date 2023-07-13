@@ -60,14 +60,14 @@ CREATE TABLE cita(
 );
 
 -- USUARIOS
-INSERT INTO usuario values('mvegape', '12345', 'paciente');
-INSERT INTO usuario values('asanchez', '12345', 'odontologo');
+INSERT INTO usuario(usuario, contrasena, rol) values('mvegape', '12345', 'paciente');
+INSERT INTO usuario(usuario, contrasena, rol) values('asanchez', '12345', 'odontologo');
 -- PACIENTES
 INSERT INTO paciente(apellidos, nombres, fechaNacimiento, dni, telefono, direccion, correo, idusuario) 
-VALUES('Vega', 'Miguel', '2001-03-24', '74283707', '984323059', 'jr. montufar','mvegape@gmail.com', 'mvegape');
+VALUES('Vega', 'Miguel', '2001-03-24', '74283707', '984323059', 'jr. montufar','mvegape@gmail.com', 1);
 -- ODONTOLOGOS
 INSERT INTO odontologo(apellidos, nombres, fechaNacimiento, dni, telefono, direccion, correo, idusuario) 
-VALUES('Sanchez', 'Andre', '1993-02-10', '76340312', '948392945', 'av. rosales','andre@gmail.com', 'asanchez');
+VALUES('Sanchez', 'Andre', '1993-02-10', '76340312', '948392945', 'av. rosales','andre@gmail.com', 2);
 -- HORARIOS DE ATENCIÓN
 INSERT INTO horarioAtencion(estado, fechaRegistro, horaInicio, horaFin, idOdontologo) 
 VALUES('disponible', '2023-07-12', '10:00', '11:00', 1);
