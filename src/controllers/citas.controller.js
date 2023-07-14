@@ -58,3 +58,16 @@ export const deleteCitas = (req, res = response) => {
         message: 'eliminando citas'
     })
 }
+
+export const reportCitas = async(req, res = response) => {
+    try {
+        const {id} = req.params;
+
+        const [data] = await pool.query('SELECT c.idCita AS ID, ha.fecharegistro AS FECHA, ha.horainicio AS INICIO, ha.horafin AS FIN, CASE WHEN c.montototal >= 20 THEN "ATENDIDO" ELSE "NO ATENDIDO" END AS ESTADO FROM cita as c INNER JOIN paciente as p on c.idPaciente = p.idPaciente INNER JOIN horarioatencion as ha on c.idHorarioAtencion = ha.idHorarioAtencion WHERE p.idPaciente = ?', [id]);
+        res.json(data)
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error en el servidor, comunicarse con un administrador'
+        })
+    }
+}

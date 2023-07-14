@@ -72,7 +72,7 @@ VALUES('Sanchez', 'Andre', '1993-02-10', '76340312', '948392945', 'av. rosales',
 INSERT INTO horarioAtencion(estado, fecharegistro, horainicio, horafin, idOdontologo) 
 VALUES('disponible', '2023-07-12', '10:00', '11:00', 2);
 -- CITA
-INSERT INTO cita(montoTotal, idHorarioAtencion, idPaciente) VALUES(20.9, 1, 1)
+INSERT INTO cita(montoTotal, idHorarioAtencion, idPaciente) VALUES(0, 1, 2)
 
 select * from odontologo as o inner join usuario as u on o.idusuario = u.usuario
 select * from horarioAtencion as ho inner join odontologo as o on o.idOdontologo= ho.idOdontologo
@@ -81,4 +81,18 @@ select * from cita as c inner join horarioAtencion as h on c.idHorarioAtencion =
 update usuario set rol = 'paciente' where usuario = 'mvegape';
 select * from paciente
 
+-- REPORTE CITA DE CADA PACIENTE
+SELECT c.idCita AS ID, ha.fecharegistro AS FECHA, ha.horainicio AS INICIO, ha.horafin AS FIN, 
+CASE WHEN c.montototal >= 20 THEN 'ATENDIDO' ELSE 'NO ATENDIDO' END AS ESTADO
+FROM cita as c 
+INNER JOIN paciente as p on c.idPaciente = p.idPaciente 
+INNER JOIN horarioatencion as ha on c.idHorarioAtencion = ha.idHorarioAtencion
+WHERE p.idPaciente = 2
 
+-- SELECT C.Id Cita AS ID,HA.fecha AS FECHA,HA.horainicio AS INICIO,HA.horafin AS FIN
+-- FROM CITA C INNER JOIN PACIENTE P
+-- ON C.codigopaciente=P.codigopaciente
+-- INNER JOIN HorarioAtencion HA ON HA.codigohorario=C.codigohorario
+-- WHERE P.dni
+
+select * from cita
