@@ -16,6 +16,8 @@ export const createPaciente = async(req, res = response) => {
     try {
         const {Apellidos, Nombres, FechaNacimiento, Dni, Telefono, Direccion, Correo, idUsuario} = req.body;
 
+        console.log(req.body);
+
         const [data] = await pool.query('INSERT INTO paciente(apellidos, nombres, fechaNacimiento, dni, telefono, direccion, correo, idusuario) VALUES(?, ?, ?, ?, ?, ?, ?, ?)', [Apellidos, Nombres, FechaNacimiento, Dni, Telefono, Direccion, Correo, idUsuario]);
         
         res.json({

@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import pacientesRoutes from "./routes/pacientes.routes.js";
 import usuariosRoutes from "./routes/usuarios.routes.js";
 import odontologosRoutes from './routes/odontologos.routes.js'
@@ -13,6 +13,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+app.use(urlencoded({extended:false}))
 
 app.use('/api', pacientesRoutes);
 app.use('/api', usuariosRoutes);
