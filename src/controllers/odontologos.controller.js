@@ -46,7 +46,8 @@ export const updateOdontologo = async(req, res = response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Error en el servidor, comunicarse con un administrador'
+            message: 'Error en el servidor, comunicarse con un administrador',
+            description: error
         })        
     }
 }
