@@ -34,8 +34,8 @@ export const createCitas = async(req, res = response) => {
 export const updateCitas = async(req, res = response) => {
     try {
         const {id} = req.params;
-        const {montototal, idHorarioAtencion, idPaciente} = req.body;
-        const [result] = await pool.query('UPDATE cita SET montoTotal = ?, idHorarioAtencion = ?, idPaciente = ? WHERE idCita= ?', [montototal, idHorarioAtencion, idPaciente, id]);
+        const {montototal, idPaciente} = req.body;
+        const [result] = await pool.query('UPDATE cita SET montoTotal = ?, idPaciente = ? WHERE idCita= ?', [montototal, idPaciente, id]);
 
         if (result.affectedRows === 0) return res.status(404).json(
             {message: 'La cita a actualizar no existe'}
@@ -47,7 +47,8 @@ export const updateCitas = async(req, res = response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Error en el servidor, comunicarse con un administrador'
+            message: 'Error en el servidor, comunicarse con un administrador',
+            description: error
         })        
     }
 }
