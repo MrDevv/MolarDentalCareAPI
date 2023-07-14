@@ -67,7 +67,8 @@ export const reportCitas = async(req, res = response) => {
         res.json(data)
     } catch (error) {
         res.status(500).json({
-            message: 'Error en el servidor, comunicarse con un administrador'
+            message: 'Error en el servidor, comunicarse con un administrador',
+            description: error
         })
     }
 }
