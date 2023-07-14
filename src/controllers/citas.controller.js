@@ -73,7 +73,7 @@ export const reportCitas = async(req, res = response) => {
     }
 }
 
-export const getAllReportsCitas = async(req, resp = response) => {
+export const getAllReportsCitas = async(req, res = response) => {
     try {
         const [data] = await pool.query('SELECT c.idCita AS ID, ha.fecharegistro AS FECHA, ha.horainicio AS INICIO, ha.horafin AS FIN, CASE WHEN c.montototal >= 20 THEN "ATENDIDO" ELSE "NO ATENDIDO" END AS ESTADO FROM cita as c INNER JOIN paciente as p on c.idPaciente = p.idPaciente INNER JOIN horarioAtencion as ha on c.idHorarioAtencion = ha.idHorarioAtencion');
         res.json(data)
